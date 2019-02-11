@@ -14,7 +14,7 @@ enjoy :)
 
 2. [Tor agent installation (Ubuntu Linux) and configuration (torrc file).](#2)
 
-3. [From SOCKS to HTTP: empowering Tor agent with Privoxy.](#3)
+3. [From SOCKS to HTTP: enhance Tor with Privoxy.](#3)
 
 4. [OK, we're already hidden... or maybe not.](#4)
 
@@ -77,7 +77,7 @@ sudo service tor restart
 Now our Tor service is runnig and we can control it through port 9051.
 
 
-#### <a name="3"></a>3. From SOCKS to HTTP: empowering Tor with Privoxy.
+#### <a name="3"></a>3. From SOCKS to HTTP: enhance Tor with Privoxy.
 
 Tor only works for TCP streams and can be used by any application with SOCKS support.
 
