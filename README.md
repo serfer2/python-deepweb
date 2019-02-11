@@ -1,10 +1,10 @@
 ## Playing with Python in the deep web
 
-### managing annonimity and hidden services in Tor network with Python
+### managing anonymity and hidden services in Tor network with Python
 
 #### Intro
 
-This repo contains some tips about Tor network and how to use it in your Python programs.
+This repository contains some tips about Tor network and how to use it in your Python programs.
 
 enjoy :)
 
@@ -32,21 +32,21 @@ enjoy :)
 
 Tor clients are connected to Tor network through an encrypted circuit. Each circuit is formed with three nodes [Entry]<->[Middle]<->[Exit].
 
-Tor Client "visible" IP address will be the IP address from the exit node. In other words, Tor client will be hidden behind Tor circuit and is able to go through the Internet annonimously.
+Tor Client "visible" IP address will be the IP address from the exit node. In other words, Tor client will be hidden behind Tor circuit and is able to go through the Internet anonimously.
 
 ![About Tor](./img/tor_general.png)
 
 
 To know more about how Tor network works (recommended) visit [Tor website](https://www.torproject.org/about/overview.html#thesolution).
 
-Tor can't solve all anonymity problems. _**Tor only protects your applications that are properly configured to send their Internet traffic through Tor**_. There are some threats regarding annonimity that can reval your real identity like malicious [Javascript](https://www.torproject.org/docs/faq.html.en#TBBJavaScriptEnabled) in some websites, [DNS traffic monitoring](https://www.hackread.com/tor-dns-traffic-monitoring/) and some other thirdparty software.
+Tor can't solve all anonymity problems. _**Tor only protects your applications that are properly configured to send their Internet traffic through Tor**_. There are some threats regarding anonimity that can reveal your real identity like malicious [Javascript](https://www.torproject.org/docs/faq.html.en#TBBJavaScriptEnabled) in some websites, [DNS traffic monitoring](https://www.hackread.com/tor-dns-traffic-monitoring/) and some other third-party software.
 
 
 #### <a name="2"></a>2. Tor client installation (Ubuntu Linux) and configuration (torrc file).
 
 ##### Installation
 
-Tor client is available for Linux and OSX. Find full installation instructions at [nstallation guides section](https://www.torproject.org/docs/installguide.html.en) (left menu).
+Tor client is available for Linux and OSX. Find full installation instructions at [installation guides section](https://www.torproject.org/docs/installguide.html.en) (left menu).
 
 Installing Tor client in Debian/Ubuntu Linux is so easy:
 
@@ -56,7 +56,7 @@ Installing Tor client in Debian/Ubuntu Linux is so easy:
 
 By default Tor client uses port **9050 for SOCKS traffic**.
 
-Controlling Tor client is possible by configuring *torrc* file in order to enable *ControlPort* option. Tis way, we can control Tor service from our Python programs.
+Controlling Tor client is possible by configuring *torrc* file in order to enable *ControlPort* option. This way, we can control Tor service from our Python programs.
 
 We're going to configure our localhost Tor service like this:
 
