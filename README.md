@@ -16,15 +16,13 @@ enjoy :)
 
 3. [From SOCKS to HTTP: enhance Tor with Privoxy.](#3)
 
-4. [OK, we're already hidden... or maybe not.](#4)
+4. [Stem, Python's library for Tor agent managing and much more.](4)
 
-5. [Stem, Python's library for Tor agent managing and much more.](#5)
+    4.1 [Switching Tor circuit to get a new output IP address.](#4.1)
 
-    5.1 [Switching Tor circuit to get a new output IP address.](#5.1)
+    4.2 [Select output IP address by country.](#4.2)
 
-    5.2 [Select output IP address by country.](#5.2)
-
-    5.3 [Building hidden services in Tor network.](#5.3)
+    4.3 [Building hidden services in Tor network.](#4.3)
 
 #### <a name="1"></a>1. Short introduction to Tor network.
 
@@ -99,15 +97,33 @@ echo "forward-socks5   /               127.0.0.1:9050 ." | sudo tee --append /et
 sudo service privoxy restart
 ```
 
-And that's it! we're ready to play arround with Python in the deep web :)
+Now we're ready to play arround with Python in the deep web. But first, let's try it.
+
+```bash
+echo "IP real: $(curl --silent "http://ipecho.net/plain")" && echo "IP TOR (socks): $(curl --silent --socks5 127.0.0.1:9050 "http://ipecho.net/plain")" && echo "IP TOR (http): $(curl --silent --proxy http://127.0.0.1:8118 "http://ipecho.net/plain")"
+```
+First line will show our actual real public IP. Seccond and third commands must return same IP public address: our actual Tor network exit relay.
 
 
-#### <a name="4"></a>4. OK, we're already hidden... or maybe not.
+#### <a name="4"></a>4. Stem, Python's library for Tor agent managing and much more.
 
-#### <a name="5"></a>5. Stem, Python's library for Tor agent managing and much more.
+[Stem](https://stem.torproject.org/index.html) is a Python controller library for Tor. It uses Tor's Control Protocol over an a Tor agent.
 
-#### <a name="5.1"></a>5.1 Switching Tor circuit to get a new output IP address.
 
-#### <a name="5.2"></a>5.2 Select output IP address by country.
+##### <a name="4.1"></a>4.1 Switching Tor circuit to get a new output IP address.
 
-#### <a name="5.3"></a>5.3 Building hidden services in Tor network.
+Switching Tor circuit programmatically can be very useful. For example when runnign web scraping programs, pen-testing, etc...
+
+Stem controller allows us to switch to an a new Tor circuit. It uses Tor Control Protocol.
+
+Find an a example in [01_stem_switch_circuit.py](./src/01_stem_switch_circuit.py) script. It interacts with Tor service, running in localhost port 9051 and switchs Tor circuit by a new one. 
+
+##### <a name="4.2"></a>4.2 Select output IP address by country.
+
+A new tor instance can be raised from our Python programs. So, we don't need to have a Tor service running in our system. Instead of this, we launch Tor from our Python program with Stem.
+
+Only one instance can be running at a time. But, despite that, it is a very powerful tool. All Controller options are available for stem library, things as selecting desired country for our "output relay" or switching tor circuit are so easy.
+
+See [02_stem_launch_tor.py](./src/02_stem_launch_tor.py) sript for a detailed example.
+
+##### <a name="4.3"></a>4.3 Building hidden services in Tor network.
