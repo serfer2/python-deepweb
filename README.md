@@ -20,7 +20,7 @@ enjoy :)
 
     4.1 [Switching Tor circuit to get a new output IP address.](#4.1)
 
-    4.2 [Select output IP address by country.](#4.2)
+    4.2 [Launch tor from Python program. Example: Select output IP address by country.](#4.2)
 
     4.3 [Building hidden services in Tor network.](#4.3)
 
@@ -118,12 +118,13 @@ Stem controller allows us to switch to an a new Tor circuit. It uses Tor Control
 
 Find an a example in [01_stem_switch_circuit.py](./src/01_stem_switch_circuit.py) script. It interacts with Tor service, running in localhost port 9051 and switchs Tor circuit by a new one. 
 
-##### <a name="4.2"></a>4.2 Select output IP address by country.
+##### <a name="4.2"></a>4.2 Launch tor from Python program. Example: Select output IP address by country
 
 A new tor instance can be raised from our Python programs. So, we don't need to have a Tor service running in our system. Instead of this, we launch Tor from our Python program with Stem.
 
 Only one instance can be running at a time. But, despite that, it is a very powerful tool. All Controller options are available for stem library, things as selecting desired country for our "output relay" or switching tor circuit are so easy.
 
-See [02_stem_launch_tor.py](./src/02_stem_launch_tor.py) sript for a detailed example.
+See [02_stem_launch_tor.py](./src/02_stem_launch_tor.py) sript for a detailed example about how to launch Tor from Python program. In this example we'll launch Tor with an exit relay from Russia.
 
 ##### <a name="4.3"></a>4.3 Building hidden services in Tor network.
+
