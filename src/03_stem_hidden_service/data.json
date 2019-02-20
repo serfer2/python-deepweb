@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "name": "Item número 1",
+        "img": "01.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Item número 2",
+        "img": "02.jpg"
+    },{
+        "id": 3,
+        "name": "Item número 3",
+        "img": "03.jpg"
+    },{
+        "id": 4,
+        "name": "Item número 4",
+        "img": "04.jpg"
+    },{
+        "id": 5,
+        "name": "Item número 5",
+        "img": "05.png"
+    },{
+        "id": 6,
+        "name": "Item número 6",
+        "img": "06.jpg"
+    }
+]

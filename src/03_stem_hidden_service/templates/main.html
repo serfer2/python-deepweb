@@ -1,15 +1,77 @@
+<!doctype html>
 <html>
-    <head>
-        <title>Hello from Flask</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css" />
-    </head>
-    <body>
-        {% if name %}
-        <h1>Hello {{ name }}!</h1>
-        {% else %}
-        <h1>Hello, World!</h1>
-        {% endif %}
-    </body>
+  <head>
+    <title>Hello from Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css" />
+  </head>
+  <body>
+    <div class="collapse bg-inverse" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">This simple site was created with educational pourposes. Please, feel free to copy, modify or redistribute it, according to <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL 3</a>.</p>
+          </div>
+          <div class="col-sm-4 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="https://twitter.com/serfer_2" class="text-white">Follow on Twitter</a></li>
+              <li>Email me <a href="mailto:serfer2@gmail.com" class="text-white">serfer2@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-inverse bg-inverse">
+      <div class="container d-flex justify-content-between">
+        <a href="/" class="navbar-brand">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">{% if fuck %}Fuck you too {{ fuck.ip }}{% else %}Unicorn heaven{% endif %}</h1>
+        <p class="lead text-muted">
+          {% if fuck %}
+          <ul>
+            {% for h in fuck.headers %}
+            <li class="left"><strong>{{ h.k }}:</strong> {{h.v}}</li>
+            {% endfor %}
+          </ul>
+          {% else %}Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua...{% endif %}</p>
+        <p>
+          <a href="/fuck/" class="btn btn-primary">Fuck uniconrs</a>
+          <a href="https://www.meetup.com/es/python_alc/" class="btn btn-secondary" target="_blank">Let's meet funny people</a>
+        </p>
+      </div>
+    </section>
+    <div class="album text-muted">
+      <div class="container">
+        <div class="row">
+          {% for item in items %}
+          <div class="card">
+            <img src="{{ url_for('static', filename='img/'+item.img) }}" alt="{{item.name}}">
+            <p class="card-text">{{item.desc}}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/jquery-3.1.1.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  </body>
 </html>
 
 

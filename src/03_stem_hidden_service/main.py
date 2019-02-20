@@ -1,6 +1,6 @@
-import os
+import json, os
 from stem.control import Controller
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 key_path = os.path.expanduser(os.path.dirname(os.path.realpath(__file__)) + '/rsa_saved.key')
 PASS = 'aVerySecurePassword'
@@ -8,8 +8,19 @@ app = Flask(__name__)
 
 
 @app.route('/')
+@app.route('/fuck/')
 def index():
-    return render_template('main.html')
+    items = []
+    with open('data.json', 'r') as f:
+        items = json.loads(f.read())
+    print(request.url_rule)
+    fuck = False
+    if str(request.url_rule).find('/fuck/') != -1:
+        fuck = {
+            'ip': request.remote_addr,
+            'headers': [{'k': k, 'v': v} for k, v in request.headers.items()]
+        }
+    return render_template('main.html', items=items, fuck=fuck)
 
 @app.route('/hello/')
 @app.route('/hello/<name>')
