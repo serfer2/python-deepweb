@@ -2,27 +2,33 @@
     {
         "id": 1,
         "name": "Item número 1",
-        "img": "01.jpg"
+        "img": "01.jpg",
+        "text": "Lorem ipsum dolor sit amet consectetur adipiscing elit porttitor, tempor facilisis eleifend nec aenean per sociosqu velit sapien, quam ut proin viverra blandit inceptos pellentesque"
     },
     {
         "id": 2,
         "name": "Item número 2",
-        "img": "02.jpg"
+        "img": "02.jpg",
+        "text": "Neque tristique eros id quis aliquet leo at aptent etiam, senectus fringilla inceptos hendrerit suspendisse integer netus egestas, nibh porttitor placerat urna turpis habitant nunc per"
     },{
         "id": 3,
         "name": "Item número 3",
-        "img": "03.jpg"
+        "img": "03.jpg",
+        "text": "Semper risus mattis vivamus gravida porta tristique dis montes, arcu cubilia scelerisque eleifend massa euismod vel, ligula conubia blandit dictumst ultrices potenti ornare"
     },{
         "id": 4,
         "name": "Item número 4",
-        "img": "04.jpg"
+        "img": "04.jpg",
+        "text": "Praesent arcu habitasse aliquam elementum sapien a magnis rhoncus, euismod suscipit nulla aliquet porta gravida fames mollis imperdiet, molestie libero vehicula senectus phasellus laoreet quis"
     },{
         "id": 5,
         "name": "Item número 5",
-        "img": "05.png"
+        "img": "05.png",
+        "text": "Dis tellus ultricies sagittis magnis luctus dapibus ornare, feugiat lacus himenaeos mus curabitur quisque facilisis, nec accumsan phasellus cubilia hac in"
     },{
         "id": 6,
         "name": "Item número 6",
-        "img": "06.jpg"
+        "img": "06.jpg",
+        "text": "Urna elementum viverra primis id nec curabitur tortor vivamus eros facilisis, velit nam aliquam ridiculus fringilla erat molestie felis odio sociosqu, sagittis auctor blandit dictum metus tincidunt interdum nulla fusce"
     }
 ]

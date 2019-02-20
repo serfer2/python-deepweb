@@ -22,12 +22,13 @@ def index():
         }
     return render_template('main.html', items=items, fuck=fuck)
 
+"""
 @app.route('/hello/')
 @app.route('/hello/<name>')
 def hello(name=None):
     return render_template('hello.html', name=name)
-
 """
+
 with Controller.from_port() as controller:
     controller.authenticate(password = PASS)
 
@@ -51,5 +52,5 @@ with Controller.from_port() as controller:
         print(" * Shutting down our hidden service")
         # controller.remove_hidden_service(hidden_service_dir)
         controller.remove_ephemeral_hidden_service(service.service_id)
-"""
+
 app.run()

@@ -16,7 +16,7 @@
           <div class="col-sm-4 py-4">
             <h4 class="text-white">Contact</h4>
             <ul class="list-unstyled">
-              <li><a href="https://twitter.com/serfer_2" class="text-white">Follow on Twitter</a></li>
+              <li>Contact me on <a href="https://www.linkedin.com/in/sergio-fern%C3%A1ndez-4a59335/" class="text-white">LinkedIn</a></li>
               <li>Email me <a href="mailto:serfer2@gmail.com" class="text-white">serfer2@gmail.com</a></li>
             </ul>
           </div>
@@ -27,13 +27,13 @@
       <div class="container d-flex justify-content-between">
         <a href="/" class="navbar-brand">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon menu-button"></span>
         </button>
       </div>
     </div>
     <section class="jumbotron text-center">
       <div class="container">
-        <h1 class="jumbotron-heading">{% if fuck %}Fuck you too {{ fuck.ip }}{% else %}Unicorn heaven{% endif %}</h1>
+        <h1 class="jumbotron-heading">{% if fuck %}Fuck you too <strong>{{ fuck.ip }}</strong> !!!{% else %}Unicorn heaven{% endif %}</h1>
         <p class="lead text-muted">
           {% if fuck %}
           <ul>
@@ -54,7 +54,7 @@
           {% for item in items %}
           <div class="card">
             <img src="{{ url_for('static', filename='img/'+item.img) }}" alt="{{item.name}}">
-            <p class="card-text">{{item.desc}}</p>
+            <p class="card-text">{{item.text}}</p>
           </div>
           {% endfor %}
         </div>
@@ -65,8 +65,9 @@
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+        <p>This site is for <a href="https://www.meetup.com/es/python_alc/">Python_ALC</a> meetup group.</p>
+        <p>Made with love using <a href="http://flask.pocoo.org/">Flask microframework</a> for <a href="https://www.python.org/">Python</a> and <a href="https://getbootstrap.com/">Bootstrap CSS</a>.</p>
+        <p>Feel free to download and customize it for yourself!</p>
       </div>
     </footer>
     <script src="{{ url_for('static', filename='js/jquery-3.1.1.slim.min.js') }}"></script>

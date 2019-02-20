@@ -6,6 +6,7 @@
 
 This repository contains some tips about Tor network and how to use it in your Python programs.
 
+
 enjoy :)
 
 ### Table of contents
@@ -112,9 +113,9 @@ First line will show our actual real public IP. Seccond and third commands must 
 
 ##### <a name="4.1"></a>4.1 Switching Tor circuit to get a new output IP address.
 
-Switching Tor circuit programmatically can be very useful. For example when runnign web scraping programs, pen-testing, etc...
+Switching Tor circuit programmatically can be very useful. For example for web scraping, pen-testing, etc...
 
-Stem controller allows us to switch to an a new Tor circuit. It uses Tor Control Protocol.
+Stem controller allows us to switch to a new Tor circuit. It uses Tor Control Protocol.
 
 Find an a example in [01_stem_switch_circuit.py](./src/01_stem_switch_circuit.py) script. It interacts with Tor service, running in localhost port 9051 and switchs Tor circuit by a new one. 
 
@@ -124,7 +125,35 @@ A new tor instance can be raised from our Python programs. So, we don't need to 
 
 Only one instance can be running at a time. But, despite that, it is a very powerful tool. All Controller options are available for stem library, things as selecting desired country for our "output relay" or switching tor circuit are so easy.
 
-See [02_stem_launch_tor.py](./src/02_stem_launch_tor.py) sript for a detailed example about how to launch Tor from Python program. In this example we'll launch Tor with an exit relay from Russia.
+See [02_stem_launch_tor.py](./src/02_stem_launch_tor.py) script for a detailed example about how to launch Tor from Python program. In this example we'll launch Tor with an exit relay from Russia.
 
 ##### <a name="4.3"></a>4.3 Building hidden services in Tor network.
+
+It is possible to configure and serve tor hidden services by deploying service and configuring torrc file to bind it to a tor `.onion` url.
+
+However, there's better way to launch and serve ephemeral hidden services. Ephemeral services can only be created through the controller.
+
+Controllers can only see their own ephemeral services, and ephemeral services that are detached. In other words, attached ephemeral services can only be managed by their own controller.
+
+Stem provides three methods to work with ephemeral hidden services:
+
+* [list_ephemeral_hidden_services()](https://stem.torproject.org/api/control.html#stem.control.Controller.list_ephemeral_hidden_services)
+
+* [create_ephemeral_hidden_service()](https://stem.torproject.org/api/control.html#stem.control.Controller.create_ephemeral_hidden_service)
+
+* [remove_ephemeral_hidden_service](https://stem.torproject.org/api/control.html#stem.control.Controller.remove_ephemeral_hidden_service)
+
+See [03_stem_hidden_service](./src/03_stem_hidden_service/main.py) example. This script shows how to build and launch a website as a hidden service.
+
+This example has been build by using [Flask](http://flask.pocoo.org/) microframework for Python. Running and serving it as a hidden service is so esay. Just go to example folder and run in console:
+
+    python main.py
+
+Flask development server will launch and serve the website in localhost, only accesible through loopback interface 127.0.0.1 listening in port 5000. Then, stem library allows us to bind this http://127.0.0.1:5000 resource to an onion address accesible only by Tor network clients. This is done through tor controller thanks to Stem capabilities.
+
+By saving service's RSA key, we can launch this hidden service with same `.onion` url many times as we want. If we did not save the RSA key, every time we launched the service, the `.onion` address would change.
+
+**NOTE:** 
+
+Script will show debug info on startup and an address like: `xxxxxxxxxxxxxxxx.onion`. This address is the hidden service url.
 
